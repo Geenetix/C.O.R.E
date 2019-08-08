@@ -1,4 +1,4 @@
-# C.O.R.E
+# C.O.R.E - ControlOrganisation and Rapidly-evolving Emulation
 
 Core ist die Backend API, welche auf dem CraftLeben.de Netzwerk eingesetzt wird. Dies ist nur die Dokumentation und sollte nur für dich interessant sein, wenn du auf dem Netzwerk als Entwickler tätig bist.
 
