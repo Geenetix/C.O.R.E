@@ -147,7 +147,7 @@ Beispiel Kompass:
         inventoryBuilder.openToPlayer(player);
     }
 ```
-In Minecraft sieht das dann so aus:
+In Minecraft sieht das dann so aus:<br>
 ![alt text](https://www.bilder-upload.eu/upload/ecfdf6-1565280963.gif)
 
 ### ItemBuilder<br>
