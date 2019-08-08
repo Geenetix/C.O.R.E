@@ -49,7 +49,7 @@ PacketManager.sendPacket(player, new PacketPlayOutTitle(...));
  
  
  ## Commands
- Für Spigot Commands ist eine alternative Form zur registrierung von Commands gegeben. Diese Commands können nicht über die Console ausgeführt werden.
+ Für Spigot Commands ist eine alternative Form zur registrierung von Commands gegeben. Diese Commands können nicht über die Console ausgeführt werden. Die Befehle müssen NICHT in der plugin.yml registriert werden!
  Beispiel:
  
  Erstelle die Klasse FlyCommand.java, diese implementiert CorePlayerCommand. Der Rest ist selbsterklärend. <br>
