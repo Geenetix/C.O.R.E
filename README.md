@@ -107,6 +107,7 @@ Die Methode getResult gibt ein DatabaseCallback mit einer Runnable zurück.
         Database.getResult("SELECT * FROM Bans", resultSet -> {
             while(resultSet.next()){
                 UUID uuid = UUID.fromString(resultSet.getString("uuid"));
+                ...
             }
         });
 ```
