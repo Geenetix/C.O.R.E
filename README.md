@@ -120,7 +120,7 @@ Die Methode getResult gibt ein DatabaseCallback mit einer Runnable zurück.
 ## Inventories, ItemStacks & co.<br>
 Die API beinhaltet sowohl einen ItemBuilder sowie einen InventoryBuilder, mit denen es deutlich einfacher ist, z.B. Klickbare Inventare zu  erstellen:
 
-###Inventories<br>
+### Inventories<br>
 withBackground() = Füllt das ganze Inventar mit z.B. Glassplatten, ohne Namen.<br>
 disableInteraction() = Verhindert, dass Items herausgenommen werden können<br>
 openToPlayer() = Öffnet das fertige Inventar einem Spieler<br>
@@ -250,7 +250,7 @@ Man verwendet die Klasse CraftUserFetcher.java um einen CraftUser über ein Craf
 ```
 
 
-##Stats<br>
+## Stats<br>
 Stats werden exakt gleich wie CraftUser abgefragt. Über die Klasse StatsFetcher.java kann man PlayerStats erhalten. An diesem Beispiel zeige ich gleich, was mit  "Callback in Callback" gemeint ist. Erst wird ein CraftUser angefordert, DANACH erst die Stats. Es wird ein GameType.java benötigt.
 
 Stats abfragen:
