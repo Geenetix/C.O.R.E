@@ -31,13 +31,14 @@ Die Hautpklassen sind CoreAPI.java und CoreAPIBungee.java. Bitte beachte, dass a
  ```
  
  ### Alle Events mit einer Zeile Code registrieren
+ Du gibst nur die Mainklasse deines Plugins und der Pfad zu deinem Package mit Listenern.
   ```java
  CoreAPI.registerListener(FFA.getClass(), "de.craftleben.ffa.listener"); 
   ```
 ### Einen Codeblock asynchron ausführen
   ```java
         CoreAPI.async(() -> {
-            
+            //ASYNC CODE
         });
   ```
   
