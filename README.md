@@ -169,9 +169,9 @@ Beispiele:
 
 ### InventoryUtils
 
-centerPositions() = Gibt eine Array mit Slots zurück, womit eine gleichmäßige Anordnung von X beliebigen Items auf eine bestimmte Inventargröße erstellt werden kann. 
-containsItems() = Checkt in einem Player Inventar ob ein exakt gleicher ItemStack bereits vorhanden ist.
-getNextInventorySize() = Gibt die nächste Inventargröße (9,18,27...) für einen Integer an: 7 - 9 | 44 - 45 etc.
+centerPositions() = Gibt eine Array mit Slots zurück, womit eine gleichmäßige Anordnung von X beliebigen Items auf eine bestimmte Inventargröße erstellt werden kann. <br>
+containsItems() = Checkt in einem Player Inventar ob ein exakt gleicher ItemStack bereits vorhanden ist. <br>
+getNextInventorySize() = Gibt die nächste Inventargröße (9,18,27...) für einen Integer an: 7 - 9 | 44 - 45 etc.<br>
 ```java
           //Beispiel centerPositions
         Inventory inventory = null;
