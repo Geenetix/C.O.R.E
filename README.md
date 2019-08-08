@@ -52,11 +52,11 @@ PacketManager.sendPacket(player, new PacketPlayOutTitle(...));
  Für Spigot Commands ist eine alternative Form zur registrierung von Commands gegeben. Diese Commands können nicht über die Console ausgeführt werden.
  Beispiel:
  
- Erstelle die Klasse FlyCommand.java, diese implementiert CorePlayerCommand. Der Rest ist selbsterklärend. 
-onPlayerCommand = Der Code der ausgeführt wird
-getCommands = Alle Befehle und alternativen Befehle für den Command
-neededRank = Der mindestens erforderliche Rang, um die Befehl auszuführen
-getDescription = Beschreibung des Commands z.B. für einen Hilfe Befehl
+ Erstelle die Klasse FlyCommand.java, diese implementiert CorePlayerCommand. Der Rest ist selbsterklärend. <br>
+onPlayerCommand = Der Code der ausgeführt wird<br>
+getCommands = Alle Befehle und alternativen Befehle für den Command<br>
+neededRank = Der mindestens erforderliche Rang, um die Befehl auszuführen<br>
+getDescription = Beschreibung des Commands z.B. für einen Hilfe Befehl<br>
 
 
 
@@ -120,10 +120,10 @@ Die Methode getResult gibt ein DatabaseCallback mit einer Runnable zurück.
 
 Die API beinhaltet sowohl einen ItemBuilder sowie einen InventoryBuilder, mit denen es deutlich einfacher ist, z.B. Klickbare Inventare zu  erstellen:
 
-###Inventories
-withBackground() = Füllt das ganze Inventar mit z.B. Glassplatten, ohne Namen.
-disableInteraction() = Verhindert, dass Items herausgenommen werden können
-openToPlayer() = Öffnet das fertige Inventar einem Spieler
+###Inventories<br>
+withBackground() = Füllt das ganze Inventar mit z.B. Glassplatten, ohne Namen.<br>
+disableInteraction() = Verhindert, dass Items herausgenommen werden können<br>
+openToPlayer() = Öffnet das fertige Inventar einem Spieler<br>
 
 Beispiel Kompass:
 ```java
