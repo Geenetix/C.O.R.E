@@ -36,11 +36,8 @@ Die Hautpklassen sind CoreAPI.java und CoreAPIBungee.java. Bitte beachte, dass a
   ```
 ### Einen Codeblock asynchron ausführen
   ```java
-   CoreAPI.async(new Runnable() {
-            @Override
-            public void run() {
-                
-            }
+        CoreAPI.async(() -> {
+            
         });
   ```
   
