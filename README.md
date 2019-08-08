@@ -116,7 +116,7 @@ Die Methode getResult gibt ein DatabaseCallback mit einer Runnable zurück.
 Die API beinhaltet sowohl einen ItemBuilder sowie einen InventoryBuilder, mit denen es deutlich einfacher ist, z.B. Klickbare Inventare zu  erstellen:
 
 withBackground() = Füllt das ganze Inventar mit z.B. Glassplatten, ohne Namen.
-interactionDisabled() = Verhindert, dass Items herausgenommen werden können
+disableInteraction() = Verhindert, dass Items herausgenommen werden können
 openToPlayer() = Öffnet das fertige Inventar einem Spieler
 
 Beispiel Kompass:
@@ -127,13 +127,13 @@ Beispiel Kompass:
 
         InventoryBuilder inventoryBuilder = new InventoryBuilder(title, size);
         inventoryBuilder.withBackground(new ItemBuilder(Material.STAINED_GLASS_PANE, 1, 14));
-        inventoryBuilder.interactionDisabled();
+        inventoryBuilder.disableInteraction(true);
 
         ItemBuilder spawn = new ItemBuilder(Material.NETHER_STAR)
                 .withName("§bSpawn")
                 .withLore("§7Klicke zum teleportieren")
                 .onLeftClick((clickPlayer, event) -> {
-                    Location spawnLocation = Bukkit.getWorld("FarmWelt").getSpawnLocation();
+                    Location spawnLocation = Bukkit.getWorld("world").getSpawnLocation();
                     clickPlayer.teleport(spawnLocation);
                 });
         inventoryBuilder.addItem(spawn, 13);
@@ -141,7 +141,8 @@ Beispiel Kompass:
         inventoryBuilder.openToPlayer(player);
     }
 ```
-
+In Minecraft sieht das dann so aus:
+![alt text](https://www.bilder-upload.eu/upload/ecfdf6-1565280963.gif)
 
 
 ```java
