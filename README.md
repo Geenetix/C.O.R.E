@@ -23,14 +23,14 @@ zu
 Dies wird in jedem Beispiel angewendet.
 
 
-## Basics
+## Basics<br>
 Die Hautpklassen sind CoreAPI.java und CoreAPIBungee.java. Bitte beachte, dass auf einem Spigot Server nur die CoreAPI.java und auf einem BungeeCord nur die CoreAPIBungee.java geladen wird. Falls eine Instanz von einer der beiden benötigt wird, beispielsweise um einen Scheduler zu registrieren, geht das folgendermaßen:
  ```java       
  CoreAPI.getInstance();
  CoreAPIBungee.getInstance();
  ```
  
- ### Alle Events mit einer Zeile Code registrieren
+ ### Alle Events mit einer Zeile Code registrieren<br>
  Du gibst nur die Mainklasse deines Plugins und der Pfad zu deinem Package mit Listenern.
   ```java
  CoreAPI.registerListener(FFA.getClass(), "de.craftleben.ffa.listener"); 
@@ -48,7 +48,7 @@ PacketManager.sendPacket(player, new PacketPlayOutTitle(...));
 ```
  
  
- ## Commands
+ ## Commands<br>
  Für Spigot Commands ist eine alternative Form zur registrierung von Commands gegeben. Diese Commands können nicht über die Console ausgeführt werden. Die Befehle müssen NICHT in der plugin.yml registriert werden!
  Beispiel:
  
@@ -98,7 +98,7 @@ Danach muss der Befehl über die CoreAPI registriert werden:
 CoreAPI.registerCommand(new FlyCommand());
 ```
 
-##Datenbank
+## Datenbank<br>
 Für alle Datenbankanfragen wird die Klasse Database.java verwendet.
 
 ### Ein ResultSet anfordert - asynchron mit Callback
@@ -112,13 +112,12 @@ Die Methode getResult gibt ein DatabaseCallback mit einer Runnable zurück.
         });
 ```
 
-### Ein Update senden - Asynchron
+### Ein Update senden - Asynchron<br>
 ```java
   Database.update("INSERT INTO Bans (uuid, banneduntil) VALUES (1234-abcdef-de5678-fghij, 15678861251)");
 ```
 
-## Inventories, ItemStacks & co.
-
+## Inventories, ItemStacks & co.<br>
 Die API beinhaltet sowohl einen ItemBuilder sowie einen InventoryBuilder, mit denen es deutlich einfacher ist, z.B. Klickbare Inventare zu  erstellen:
 
 ###Inventories<br>
@@ -151,7 +150,7 @@ Beispiel Kompass:
 In Minecraft sieht das dann so aus:
 ![alt text](https://www.bilder-upload.eu/upload/ecfdf6-1565280963.gif)
 
-### ItemBuilder
+### ItemBuilder<br>
 Der ItemBuilder ist sehr selbsterklärend. Man erstellt pro Item einen neuen ItemBuilder, welchem man dann nach und nach mehr Informationen angehängt werden. Am Ende wird mit toItemStack() ein ItemStack generiert. Spielerköpfe können mit toPlayerHead() erstellt werden. 
 Beispiele:
 ```java
@@ -168,8 +167,7 @@ Beispiele:
         ItemStack skull = new ItemBuilder(Material.SKULL_ITEM).toPlayerHead("Chriis");
 ```
 
-### InventoryUtils
-
+### InventoryUtils<br>
 centerPositions() = Gibt eine Array mit Slots zurück, womit eine gleichmäßige Anordnung von X beliebigen Items auf eine bestimmte Inventargröße erstellt werden kann. <br>
 containsItems() = Checkt in einem Player Inventar ob ein exakt gleicher ItemStack bereits vorhanden ist. <br>
 getNextInventorySize() = Gibt die nächste Inventargröße (9,18,27...) für einen Integer an: 7 - 9 | 44 - 45 etc.<br>
@@ -224,10 +222,10 @@ getNextInventorySize() = Gibt die nächste Inventargröße (9,18,27...) für ein
                 .sendPlayer(player); // oder .sendAllPlayers();
 ```
 
-## CraftUser - Coins, Rang, Spielzeit usw.
+## CraftUser - Coins, Rang, Spielzeit usw.<br>
 CraftUser können sowohl von einer UUID, einem Player oder einem ProxiedPlayer erstellt werden. Es wird wieder ein Callback benutzt, welches einen CraftUser zurück gibt, wenn der Spieler aus der Datenbank geladen wurde. Die Daten sind immer Live und müssen nie Gecached werden, da die Callbacks asynchron verlaufen. Sobald Spielerinformationen benötigt werden, muss der ganze Code der auf diese Information aufbaut, in die Callback Methode geschrieben werden. Man kann auch Callbacks in Callbacks verwenden. So kann man z.B. erst die Coins und dann die Stats abfragen. Alles asynchron. Weiteres unten bei Stats. Callbacks everywhere :D
 
-### Alle Informationen abfragen
+### Alle Informationen abfragen<br>
 Man verwendet die Klasse CraftUserFetcher.java um einen CraftUser über ein CraftUserCallback zu erhalten:
 ```java
         new CraftUserFetcher(player, craftUser -> {
@@ -252,7 +250,7 @@ Man verwendet die Klasse CraftUserFetcher.java um einen CraftUser über ein Craf
 ```
 
 
-##Stats
+##Stats<br>
 Stats werden exakt gleich wie CraftUser abgefragt. Über die Klasse StatsFetcher.java kann man PlayerStats erhalten. An diesem Beispiel zeige ich gleich, was mit  "Callback in Callback" gemeint ist. Erst wird ein CraftUser angefordert, DANACH erst die Stats. Es wird ein GameType.java benötigt.
 
 Stats abfragen:
