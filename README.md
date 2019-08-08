@@ -101,7 +101,7 @@ CoreAPI.registerCommand(new FlyCommand());
 ## Datenbank<br>
 Für alle Datenbankanfragen wird die Klasse Database.java verwendet.
 
-### Ein ResultSet anfordert - asynchron mit Callback
+### Ein ResultSet anfordern - asynchron mit Callback
 Die Methode getResult gibt ein DatabaseCallback mit einer Runnable zurück.
 ```java
         Database.getResult("SELECT * FROM Bans", resultSet -> {
