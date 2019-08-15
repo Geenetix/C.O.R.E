@@ -296,7 +296,8 @@ addUpdateRow() = Fügt eine Zeile Text hinzu, die geupdatet werden kann, %s wird
                 .addEmptyLine()
                 .addLine("§7Dein Name§8:")
                 .addUpdateRow("scoreboard_name","§8» ", "§c%s")//%s Wird beim updaten ersetzt - Dazu unten mehr
-                .addEmptyLine();
+                .addEmptyLine()
+                .sendPlayer();
 
 
         //Score updaten
