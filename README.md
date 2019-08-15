@@ -284,6 +284,21 @@ Stats abfragen:
 
         });
 ```
- ```java
 
+## Scoreboard<br>
+Mit dem ScoreboardBuilder können einfach Scoreboards erstellt werden, die auch einfach geupdatet werden können
+addEmptyLine() = Fügt eine Leere Zeile hinzu
+addLine() = Fügt eine Zeile mit Text hinzu, die nicht geupdatet werden kann
+addUpdateRow() = Fügt eine Zeile Text hinzu, die geupdatet werden kann, %s wird immer durch entsprechenden Text ersetzt
+```java
+        Player player = ...;
+        new ScoreboardBuilder(player, "§f§LCRAFTLEBEN.DE")
+                .addEmptyLine()
+                .addLine("§7Dein Name§8:")
+                .addUpdateRow("scoreboard_name","§8» ", "§c%s")//%s Wird beim updaten ersetzt - Dazu unten mehr
+                .addEmptyLine();
+
+
+        //Score updaten
+        ScoreboardBuilder.getBuilder(player).updateRow("scoreboard_name", "", player.getName());
 ```
