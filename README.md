@@ -164,7 +164,7 @@ Beispiele:
                 .withEnchantment(Enchantment.DURABILITY, 10)
                 .toItemStack();
 
-        ItemStack skull = new ItemBuilder(Material.SKULL_ITEM).toPlayerHead("Chriis");
+        ItemStack skull = new ItemBuilder(Material.SKULL_ITEM, 1, 3).toPlayerHead("Chriis");
 ```
 
 ### InventoryUtils<br>
@@ -249,7 +249,28 @@ Man verwendet die Klasse CraftUserFetcher.java um einen CraftUser über ein Craf
         });
 ```
 
-
+### Beispiel: PlayerValues setzen und abfragen. Nützlich für Einstellungen etc.<br>
+Setzen
+```java 
+        new CraftUserFetcher(player, user -> {
+           user.setPlayerValue("lobby_autonick_enabled", true); //Funktioniert wie eine HashMap
+        });
+```
+<br> Abfragen
+```java 
+     new CraftUserFetcher(player, user -> {
+           user.getPlayerValue("lobby_autonick_enabled", playerValueObject -> {
+               if(playerValueObject != null){
+                   Boolean autonick = (Boolean) playerValueObject; //Zu dem Typ casten den man gesetzt hat (Hier: Boolean - Ist ja true / false)
+                   if(autonick){
+                       //Wenn AutoNick aktivert ist ....
+                   }
+               }else{
+                   //Player Value wurde noch nie gesetzt (Also hier wäre AutoNick auch deaktiviert)
+               }
+           });
+        });
+```
 ## Stats<br>
 Stats werden exakt gleich wie CraftUser abgefragt. Über die Klasse StatsFetcher.java kann man PlayerStats erhalten. An diesem Beispiel zeige ich gleich, was mit  "Callback in Callback" gemeint ist. Erst wird ein CraftUser angefordert, DANACH erst die Stats. Es wird ein GameType.java benötigt.
 
