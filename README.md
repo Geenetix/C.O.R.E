@@ -290,16 +290,27 @@ Mit dem ScoreboardBuilder können einfach Scoreboards erstellt werden, die auch 
 addEmptyLine() = Fügt eine Leere Zeile hinzu
 addLine() = Fügt eine Zeile mit Text hinzu, die nicht geupdatet werden kann
 addUpdateRow() = Fügt eine Zeile Text hinzu, die geupdatet werden kann, %s wird immer durch entsprechenden Text ersetzt
+
+Beispiel: In diesem Beispiel wird bei jeder Bewegung die aktuelle Location im Scoreboard angezeigt
 ```java
         Player player = ...;
-        new ScoreboardBuilder(player, "§f§LCRAFTLEBEN.DE")
-                .addEmptyLine()
-                .addLine("§7Dein Name§8:")
-                .addUpdateRow("scoreboard_name","§8» ", "§c%s")//%s Wird beim updaten ersetzt - Dazu unten mehr
-                .addEmptyLine()
-                .sendPlayer();
+                new ScoreboardBuilder(player, "§f§LCRAFTLEBEN.DE")
+                        .addEmptyLine()
+                        .addLine("§7Koordinaten§8:")
+                        .addUpdateRow("scoreboard_x","§8» ", "§c%s")//%s Wird beim updaten ersetzt - Dazu unten mehr
+                        .addUpdateRow("scoreboard_y","§8» ", "§c%s")//%s Wird beim updaten ersetzt - Dazu unten mehr
+                        .addUpdateRow("scoreboard_z","§8» ", "§c%s")//%s Wird beim updaten ersetzt - Dazu unten mehr
+                        .addEmptyLine()
+                        .sendPlayer();
 
 
         //Score updaten
-        ScoreboardBuilder.getBuilder(player).updateRow("scoreboard_name", "", player.getName());
+            Integer x = Double.valueOf(player.getLocation().getX()).intValue();
+            Integer y = Double.valueOf(player.getLocation().getY()).intValue();
+            Integer z = Double.valueOf(player.getLocation().getZ()).intValue();
+            
+
+            ScoreboardBuilder.getBuilder(player).updateRow("scoreboard_x", "", x.toString());
+            ScoreboardBuilder.getBuilder(player).updateRow("scoreboard_y", "", y.toString());
+            ScoreboardBuilder.getBuilder(player).updateRow("scoreboard_z", "", z.toString());
 ```
