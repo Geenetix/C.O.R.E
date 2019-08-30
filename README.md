@@ -46,6 +46,14 @@ Die Hautpklassen sind CoreAPI.java und CoreAPIBungee.java. Bitte beachte, dass a
  ```java
 PacketManager.sendPacket(player, new PacketPlayOutTitle(...));
 ```
+
+### Prefixes
+Jedes System hat einen eigenen Prefix, der von der COREAPI verwaltet wird. Jede Standard Nachricht (z.B. "Die Runde beginnt in ..." oder "... abgeschlossen") wird mit dem Standard Prefix des jeweiligen Systems gesendet (z.B. Prefix.LOBBY). Jede Fehlernachricht oder Syntaxfehlernachricht (z.B. "Du hast zu wenige Coins" oder "Verwende /...") nutzt den Error Prefix des jeweiligen Systems (z.B. Prefix.LOBBY_ERROR)<br>
+Beispiel:<br>
+ ```java
+                player.sendMessage(Prefix.LOBBY + "Wenn du weiter so schlecht codest, zerleg ich dein Motherboard und mach aus dir ein Weinregal");
+                player.sendMessage(Prefix.LOBBY_ERROR + "Du codest zu schlecht - Verwende /hub schrauber"); 
+```
  
  
  ## Commands<br>
@@ -314,3 +322,79 @@ Beispiel: In diesem Beispiel wird bei jeder Bewegung die aktuelle Location im Sc
             ScoreboardBuilder.getBuilder(player).updateRow("scoreboard_y", "", y.toString());
             ScoreboardBuilder.getBuilder(player).updateRow("scoreboard_z", "", z.toString());
 ```
+
+## ServerValues - Speichere z.B. Locations / Globale Server Einstellungen (Motd...)
+Servervalues sind globale Werte, die wirklich nur auf den gesamten Server zutreffen, und nicht auf einzelne Spieler. Wenn du Spieler Einstellungen speichern möchtest, schaue dir PlayerValues an.
+Ähnlich wie bei den PlayerValues ist eine ServerValue einfach gesagt ein synchronisierter HashMap Eintrag - Sprich Key -> Value<br>
+In diesem Beispiel wird eine Location mithilfe von LocationParser.java (Dazu unten mehr) als ServerValue gespeichert. 
+### Erstellen - Vorher checken ob dieser existiert! - Beispiel: Globale Location speichern
+```java
+                Location location = ...;
+                ServerValue serverValue = new ServerValue("superjump_spawn_location", LocationParser.toString(location));
+                serverValue.create();
+
+```
+### Auslesen / Checken ob existent
+```java
+                ServerValueFetcher.getServerValue("superjump_spawn_location", serverValue -> {
+                    if(serverValue == null){
+                        //ServerValue existiert nicht
+                    }else{
+                        //Servervalue existiert - Auslesen :P
+                        player.sendMessage("Server Value: " + serverValue.getValue());
+
+                    }
+                });
+
+```
+### Updaten
+```java
+                 serverValue.update(LocationParser.toString(newLocation));
+
+```
+### Löschen
+```java
+                 serverValue.delete();
+
+```
+
+## LocationParser - Location zu einem String oder String zu Location
+Diese einfache Methode ist dafür nützlich, um wie z.B. eine Location zu einem Text umzuwandelt, damit dieser dann in MySQL oder einer Config gespeichert werden kann.
+### Location zum String
+```java
+                Location location = ...;
+                String stringLocation = LocationParser.toString(location);
+
+```
+### String zu Location
+```java
+                String stringLocation = "...";
+                Location location = LocationParser.fromString(stringLocation);
+
+```
+
+## Locations
+Um einen Spieler zu teleportieren, kann man den TeleportBuilder nutzen, der einfache funktionen direkt abnimmt. Teleport Delay, nicht bewegen usw. Man benötigt nur einen Locationname (z.B. "Spawn") und eine Location<br>
+cancelOnMovement() = Bricht den Teleport ab, wenn man sich bewegt<br>
+withDelay() = Fügt für Spieler eine 5, für Premium 3 Sekunden Wartezeit ein<br>
+withMessage() = Überschreibt die Standardnachricht beim Teleport<br>
+teleport() = Startet den Teleportvorgang für einen Spieler<br>
+cancelTeleport() = Bricht den Teleportvorgang ab, wenn es nötig sein sollte
+### Beispiel - Spawn Command, mit Delay, eigener Nachricht und Bewegung deaktiviert
+
+```java
+                Location spawn = null;
+                new TeleportBuilder("Spawn", spawn)
+                        .withDelay()
+                        .cancelOnMovement(true)
+                        .withMessage("§a§lDU BIST JETZT AM SPAWN YEAH")
+                        .teleport(player);
+
+```
+
+```java
+
+
+```
+
+
