@@ -402,8 +402,20 @@ cancelTeleport() = Bricht den Teleportvorgang ab, wenn es nötig sein sollte
 
 ```
 
+## Netzwerkkommunikation
+Durch die C.O.R.E Netzwerkkommunikation ist es möglich, Nachrichten von Spigot zu BungeeCord und zurück zu senden. So sind beispielsweise sofortige Rangwechsel im Scoreboard möglich, aber auch das Abfragen der Spielerzahl von einem anderen Unterserver. <br>
+### Nachricht von BungeeCord an Spigot senden
 ```java
+//Dokumantation kommt noch
+```
+### Nachricht von Spigot an BungeeCord senden
+```java
+//Dokumantation kommt noch
 
+```
+### Spielerzahl von anderem Unterserver auslesen
+```java
+            int players = NetworkManager.getPlayers("Lobby-1");
 
 ```
 
