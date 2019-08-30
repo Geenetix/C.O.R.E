@@ -359,7 +359,7 @@ In diesem Beispiel wird eine Location mithilfe von LocationParser.java (Dazu unt
 ```
 
 ## LocationParser - Location zu einem String oder String zu Location
-Diese einfache Methode ist dafür nützlich, um wie z.B. eine Location zu einem Text umzuwandelt, damit dieser dann in MySQL oder einer Config gespeichert werden kann.
+Diese einfache Methode ist dafür nützlich, um wie z.B. eine Location zu einem Text umzuwandeln, damit dieser dann in MySQL oder einer Config gespeichert werden kann.
 ### Location zum String
 ```java
                 Location location = ...;
@@ -373,7 +373,7 @@ Diese einfache Methode ist dafür nützlich, um wie z.B. eine Location zu einem 
 
 ```
 
-## Locations
+## Teleport
 Um einen Spieler zu teleportieren, kann man den TeleportBuilder nutzen, der einfache funktionen direkt abnimmt. Teleport Delay, nicht bewegen usw. Man benötigt nur einen Locationname (z.B. "Spawn") und eine Location<br>
 cancelOnMovement() = Bricht den Teleport ab, wenn man sich bewegt<br>
 withDelay() = Fügt für Spieler eine 5, für Premium 3 Sekunden Wartezeit ein<br>
