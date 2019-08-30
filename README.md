@@ -279,6 +279,14 @@ Setzen
            });
         });
 ```
+
+### Beispiel: Auf anderen BungeeCord Server verschieben
+```java 
+                UUID uuid = ...;
+                new CraftUserFetcher(uuid, craftUser -> {
+                   craftUser.sendToServer("Lobby-1");
+                });
+```
 ## Stats<br>
 Stats werden exakt gleich wie CraftUser abgefragt. Über die Klasse StatsFetcher.java kann man PlayerStats erhalten. An diesem Beispiel zeige ich gleich, was mit  "Callback in Callback" gemeint ist. Erst wird ein CraftUser angefordert, DANACH erst die Stats. Es wird ein GameType.java benötigt.
 
