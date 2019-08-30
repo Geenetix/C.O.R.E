@@ -305,7 +305,9 @@ Stats abfragen:
 Mit dem ScoreboardBuilder können einfach Scoreboards erstellt werden, die auch einfach geupdatet werden können<br>
 addEmptyLine() = Fügt eine Leere Zeile hinzu<br>
 addLine() = Fügt eine Zeile mit Text hinzu, die nicht geupdatet werden kann<br>
-addUpdateRow() = Fügt eine Zeile Text hinzu, die geupdatet werden kann, %s wird immer durch entsprechenden Text ersetzt
+addUpdateRow() = Fügt eine Zeile Text hinzu, die geupdatet werden kann, %s wird immer durch entsprechenden Text ersetzt<br>
+disabledSideboard() = Deaktiviert das Scoreboard an der Rechten Seite - Tab Prefixes bleiben erhalten!<br>
+resetScores() = Setzt alle Reihen im Sideboard zurück!
 
 Beispiel: In diesem Beispiel wird bei jeder Bewegung die aktuelle Location im Scoreboard angezeigt
 ```java
