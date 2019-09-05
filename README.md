@@ -420,8 +420,8 @@ Durch die C.O.R.E Netzwerkkommunikation ist es möglich, Nachrichten von Spigot 
 ```
 
 ## Events
-PlayerRankChangeEvent.java -> Wird getriggered wenn der Rang eines Spielers verändert wird
-PlayerCoinChangeEvent.java -> Wird getriggered wenn ein Spielers Coins verdient oder verliert
-CoreBungeeMessageReceiveEvent.java -> Wird getriggered, wenn ein Spigot Server eine Nachricht von BungeeCordt (Siehe Netzwerkkommunikation)
-CoreMessageReceiveEvent.java (BungeeCord) -> Wird getriggered, wenn der BungeeCord eine Nachricht eines Spigot Servers erhält (Siehe Netzwerkkommunikation)
+PlayerRankChangeEvent.java -> Wird getriggered wenn der Rang eines Spielers verändert wird<br>
+PlayerCoinChangeEvent.java -> Wird getriggered wenn ein Spielers Coins verdient oder verliert<br>
+CoreBungeeMessageReceiveEvent.java -> Wird getriggered, wenn ein Spigot Server eine Nachricht von BungeeCordt (Siehe Netzwerkkommunikation)<br>
+CoreMessageReceiveEvent.java (BungeeCord) -> Wird getriggered, wenn der BungeeCord eine Nachricht eines Spigot Servers erhält (Siehe Netzwerkkommunikation)<br>
 
